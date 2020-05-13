@@ -154,7 +154,7 @@ namespace BootstrappingMiddleware
                 _isContentLengthSet = true;
             } 
                 
-            return isJson && isBootstrapData;
+            return isJson;
         }
 
         public override async ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)

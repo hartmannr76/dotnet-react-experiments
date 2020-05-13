@@ -59,10 +59,9 @@ namespace BootstrappingMiddleware
         /// <param name="baseStream">The raw Response Stream</param>
         /// <param name="bootstrapData"></param>
         /// <returns></returns>
-        public static Task InjectBootstrapDataAsync(byte[] buffer, int offset, int count, HttpContext context, Stream baseStream, ReadOnlyMemory<byte> bootstrapData)
+        public static Task InjectBootstrapDataAsync(Span<byte> buffer, int offset, int count, HttpContext context, Stream baseStream, ReadOnlyMemory<byte> bootstrapData)
         {
-            Span<byte> currentBuffer = buffer;
-            var curBuffer = currentBuffer.Slice(offset, count).ToArray();
+            var curBuffer = buffer.Slice(offset, count).ToArray();
             return InjectBootstrapDataAsync(curBuffer, context, baseStream, bootstrapData);
         }
 

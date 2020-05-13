@@ -15,14 +15,7 @@ namespace BootstrappingMiddleware
         private const string STR_BodyMarker = "</body>";
 
         private static readonly byte[] _bodyBytes = Encoding.UTF8.GetBytes(STR_BodyMarker);
-
-        /// <summary>
-        /// Adds Live Reload WebSocket script into the page before the body tag.
-        /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="context"></param>
-        /// <param name="baseStream">The raw Response Stream</param>
-        /// <returns></returns>
+        
         public static async Task InjectBootstrapDataAsync(byte[] buffer, HttpContext context, Stream baseStream, ReadOnlyMemory<byte> bootstrapData)
         {
             var index = buffer.LastIndexOf(_bodyBytes);
@@ -48,17 +41,7 @@ namespace BootstrappingMiddleware
 
         static int LastIndexOf<T>(this T[] array, T[] sought) where T : IEquatable<T> =>
             array.AsSpan().LastIndexOf(sought);
-
-        /// <summary>
-        /// Adds Live Reload WebSocket script into the page before the body tag.
-        /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        /// <param name="context"></param>
-        /// <param name="baseStream">The raw Response Stream</param>
-        /// <param name="bootstrapData"></param>
-        /// <returns></returns>
+        
         public static Task InjectBootstrapDataAsync(Span<byte> buffer, int offset, int count, HttpContext context, Stream baseStream, ReadOnlyMemory<byte> bootstrapData)
         {
             var curBuffer = buffer.Slice(offset, count).ToArray();

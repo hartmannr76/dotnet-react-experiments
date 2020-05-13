@@ -55,8 +55,6 @@ namespace BootstrappingMiddleware
         public override void SetLength(long value)
         {
             _baseStream.SetLength(value);
-            IsHtmlResponse();
-            IsBootstrappedJsonResponse();
         }
 
         public override void Write(ReadOnlySpan<byte> buffer)

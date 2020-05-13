@@ -46,3 +46,5 @@ public object BootstrapHome()
     };
 }
 ```
+
+![Middleware Pipeline](../../content/middleware-pipeline.png)

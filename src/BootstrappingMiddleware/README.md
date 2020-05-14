@@ -47,4 +47,22 @@ public object BootstrapHome()
 }
 ```
 
+This will now inject an object on the `/` route that will look like
+
+```html
+<html>
+    <head>
+    ...
+    <script>
+    window.config = {
+        "Example": "ConfigValue"
+    };
+    </script>
+    </head>
+    <body>
+    ...
+    </body>
+</html>
+```
+
 ![Middleware Pipeline](../../content/middleware-pipeline.png)

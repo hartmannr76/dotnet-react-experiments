@@ -12,7 +12,7 @@ namespace BootstrappingMiddleware
     /// </summary>
     public static class InjectionHelper
     {
-        private const string STR_BodyMarker = "</body>";
+        private const string STR_BodyMarker = "</head>";
 
         private static readonly byte[] _bodyBytes = Encoding.UTF8.GetBytes(STR_BodyMarker);
         
@@ -56,7 +56,7 @@ namespace BootstrappingMiddleware
 <script>
 window.config = {data};
 </script>
-</body>";
+</head>";
         }
     }
 }
